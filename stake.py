@@ -8,8 +8,14 @@ def calculate_investment(odds):
 st.title("Betting Investment Calculator")
 
 st.header("Enter the odds for each team")
-odds_a = st.number_input("Odds for Team A", min_value=0.01, format="%.2f")
-odds_b = st.number_input("Odds for Team B", min_value=0.01, format="%.2f")
+odds_a = st.number_input("Odds for Team A", min_value=0.00, format="%.2f", value=0.00)
+odds_b = st.number_input("Odds for Team B", min_value=0.00, format="%.2f", value=0.00)
+
+# Display labels for amount to bet on each team
+investment_a_display = calculate_investment(odds_a)
+investment_b_display = calculate_investment(odds_b)
+st.write(f"Amount to bet on Team A: ${investment_a_display:.2f}")
+st.write(f"Amount to bet on Team B: ${investment_b_display:.2f}")
 
 st.header("Which team will lose?")
 losing_team = st.radio("Select the losing team", ("Team A", "Team B"))
